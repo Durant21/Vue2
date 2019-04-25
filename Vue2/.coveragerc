@@ -1,0 +1,3 @@
+[run]
+source = vue2
+omit = vue2/test*
