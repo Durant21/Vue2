@@ -78,7 +78,40 @@
     <p v-show="show">Hurray I'm here!</p>
     <hr>
 
+
+Loop through the Person list
+
+    <ul>
+        <li v-for="person in persons">
+            {{ person.name }}
+        </li>
+    </ul>
 </div>
+
+<br><br>
+output uppercase using a computed property
+<br>
+<div id="app-12">
+    <p>{{ theTitle }}</p>
+</div>
+
+
+<br><br>
+Filters:  Uppercase using global filter.
+<br>
+<div id="app-13">
+    <p>{{ title | uppercase }}</p>
+</div>
+
+
+<br><br>
+Chaining Filters:  lowercase by using a local filter on the result of the global filter.
+<br>
+<div id="app-14">
+    <p>{{ title | uppercase | lowercase }}</p>
+</div>
+
+
 <script>
 
 
@@ -185,6 +218,61 @@
                 ]
             }
         });
+
+        var app12 = new Vue({
+            el: '#app-12',
+            data: {
+                title: 'hello world'
+            },
+            computed: {
+                theTitle: function() {
+                    return this.title.toUpperCase();
+                }
+            }
+        });
+
+
+        // Filters
+        Vue.filter('uppercase', function(value) {
+            return value.toUpperCase();
+        })
+         var app13 = new Vue({
+            el: '#app-13',
+            data: {
+                title: 'hello world',
+                message: 'something'
+            },
+            computed: {
+                theTitle: function() {
+                    return this.title.toUpperCase();
+                }
+            }
+        });
+
+
+         // Local Filters
+        Vue.filter('uppercase', function(value) {
+            return value.toUpperCase();
+        })
+         var app14 = new Vue({
+            el: '#app-14',
+            data: {
+                title: 'hello world',
+                message: 'something'
+            },
+            computed: {
+                theTitle: function() {
+                    return this.title.toUpperCase();
+                }
+            },
+             filters: {
+               lowercase: function(value) {
+                   return value.toLowerCase();
+               }
+             }
+        });
+
+
 
 </script>
 
