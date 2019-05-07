@@ -10,3 +10,8 @@ Getting Started
 
 - $VENV/bin/pserve development.ini
 
+-----
+5/1/2019
+pulled code from git.
+layout_vue2.pt contains code for app-14 made from home.
+
